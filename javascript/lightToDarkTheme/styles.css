@@ -1,0 +1,120 @@
+:root {
+  --symbol-btn-color: #ff5100;
+  --bg-color: white;
+  --title-text-color: black;
+  --btn-text-color: white;
+  --transition-time: 1s;
+  --rotation: 0deg;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: auto;
+  overflow: hidden;
+  /* In the sun-moon-container, the height: 200vmin overflows the page and makes the scroll bar in browser appear.
+  We can get rid of this overflow by hiding it*/
+
+  transition: var(--transition-time);
+
+  background-color: var(--bg-color);
+  color: var(--title-text-color);
+}
+
+/* Light color of sun symbol */
+/* svg.sun path {
+  fill: var(--symbol-btn-color);
+} */
+
+/* Applies the color changes for when dark mode */
+body.dark-mode {
+  --symbol-btn-color: rgb(190, 180, 44);
+  --bg-color: rgb(77, 75, 75);
+  --title-text-color: white;
+  --btn-text-color: white;
+}
+
+/* body.dark-mode svg.moon path {
+  fill: var(--symbol-btn-color);
+} */
+
+body.dark-mode .sun-moon-container {
+  --rotation: 180deg;
+}
+
+/* "Theme Swapper" */
+.title {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Toggle button */
+.swap-theme-btn {
+  background-color: var(--symbol-btn-color);
+  color: var(--btn-text-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  padding: 0.5rem 0.5rem;
+  border-radius: 5px;
+
+  gap: 10px;
+
+  transition: var(--transition-time);
+}
+
+/* Enlarge the button when hovering */
+.swap-theme-btn:hover {
+  transform: scale(1.1);
+}
+
+.btn-symbol-color path {
+  fill: var(--btn-text-color);
+}
+
+.sun-moon-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  pointer-events: none; /* Take this out and see what happens when you hover over the button */
+  height: 200vmin; /* If you want an element to be a certain percentage of the smaller dimension of the viewport (w or h), 
+  use vmin. This can be useful when you want consistent sizing regardless of whether the viewport is wider or taller. */
+  transition: transform var(--transition-time);
+  transform: rotate(var(--rotation));
+}
+
+.sun,
+.moon {
+  position: absolute;
+  transition: opacity var(--transition-time);
+  height: 40px;
+  width: 40px;
+  fill: var(--symbol-btn-color);
+}
+
+.sun {
+  top: 5%;
+  opacity: 1;
+}
+
+.dark-mode .sun {
+  opacity: 0;
+}
+
+.moon {
+  bottom: 5%;
+  opacity: 0;
+  transform: rotate(180deg);
+}
+
+.dark-mode .moon {
+  opacity: 1;
+}
