@@ -1,0 +1,134 @@
+/* *::after,
+*::before {
+  box-sizing: border-box;
+} */
+
+:root {
+  --weather-icon-width: 40px;
+  --weather-icon-height: 40px;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(90, 230, 255);
+  color: rgb(2, 49, 177);
+  font-family: "Times New Roman", Times, serif;
+}
+
+/* .blurred {
+  filter: blur(3px);
+  overflow: hidden;
+} */
+
+.header {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-right: 2px solid black;
+}
+
+.weather-icon {
+  width: var(--weather-icon-width);
+  height: var(--weather-icon-height);
+  object-fit: contain; /*property ensures that the content scales to fit within the container while maintaining its aspect ratio*/
+}
+
+.weather-icon.large {
+  --weather-icon-width: 80px;
+  --weather-icon-height: 80px;
+}
+
+.header-current-temp {
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.header-right {
+  display: grid;
+  width: 50%;
+  gap: 0.5rem;
+  /* justify-content: space-between; */
+  text-align: center;
+  /* use of 1fr in grid-template-rows and grid-template-columns means that the rows 
+  and columns will share the available space equally, whereas the use of auto means 
+  that the size of the rows and columns will be determined by their content. */
+  /* grid-template-rows: repeat(2, 1fr); */
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(3, auto);
+}
+
+.info-group {
+  /* border: 1px black solid; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: rgb(37, 92, 243);
+}
+
+.day-section {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: repeat(4, auto);
+  gap: 2rem;
+  /* grid-template-rows: repeat(2, auto); */
+  /* grid-template-columns: repeat(auto-fit, 75px); */
+  /* gap: 0.5rem; */
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.day-card {
+  border: 2px solid rgb(0, 85, 255);
+  /* text-align: center; */
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.25rem;
+}
+
+.day-card-day {
+  margin-top: 0.5rem;
+}
+
+.hour-section {
+  width: 100%;
+  margin: 0; /* Remove any default margin */
+  padding: 0; /* Remove any default padding */
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.hour-row {
+  background-color: hsl(
+    200,
+    100%,
+    62%
+  ); /* HUE (color: red(0).green(120),blue(240)), SATURATION, BRIGHTNESS */
+}
+
+.hour-row:nth-child(2n) {
+  background-color: hsl(200, 100%, 69%);
+}
+
+.hour-row > td {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
