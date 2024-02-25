@@ -15,10 +15,10 @@ body {
   font-family: "Times New Roman", Times, serif;
 }
 
-/* .blurred {
+.blurred {
   filter: blur(3px);
   overflow: hidden;
-} */
+}
 
 .header {
   display: flex;
@@ -59,8 +59,8 @@ body {
   /* justify-content: space-between; */
   text-align: center;
   /* use of 1fr in grid-template-rows and grid-template-columns means that the rows 
-  and columns will share the available space equally, whereas the use of auto means 
-  that the size of the rows and columns will be determined by their content. */
+    and columns will share the available space equally, whereas the use of auto means 
+    that the size of the rows and columns will be determined by their content. */
   /* grid-template-rows: repeat(2, 1fr); */
   /* grid-template-columns: repeat(3, 1fr); */
   grid-template-rows: repeat(2, auto);
